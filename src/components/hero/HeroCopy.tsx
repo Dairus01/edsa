@@ -19,6 +19,8 @@ export interface HeroCopyHandle {
 interface HeroCopyProps {
   beats: readonly HeroBeat[];
   reducedMotion: boolean;
+  staticLayout?: boolean;
+  staticBrand?: React.ReactNode;
 }
 
 const heroCopy: Record<
@@ -87,7 +89,15 @@ const heroCopy: Record<
 };
 
 export const HeroCopy = forwardRef<HeroCopyHandle, HeroCopyProps>(
-  function HeroCopy({ beats, reducedMotion }, forwardedRef) {
+  function HeroCopy(
+    {
+      beats,
+      reducedMotion,
+      staticLayout = reducedMotion,
+      staticBrand,
+    },
+    forwardedRef,
+  ) {
     const beatElementsRef = useRef<
       Partial<Record<HeroBeatId, HTMLDivElement>>
     >({});
@@ -115,11 +125,11 @@ export const HeroCopy = forwardRef<HeroCopyHandle, HeroCopyProps>(
       [beats],
     );
 
-    if (reducedMotion) {
+    if (staticLayout) {
       return (
         <div
-          className="hero-copy hero-copy--reduced"
-          data-reduced-motion="true"
+          className="hero-copy hero-copy--static"
+          data-reduced-motion={String(reducedMotion)}
         >
           <div className="hero-copy__reduced-identity">
             <h1 className="hero-copy__title">
@@ -131,6 +141,8 @@ export const HeroCopy = forwardRef<HeroCopyHandle, HeroCopyProps>(
               God, grow in faith, and find belonging.
             </p>
           </div>
+
+          {staticBrand}
 
           <div className="hero-copy__reduced-closing">
             <p className="hero-copy__final-title">

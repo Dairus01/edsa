@@ -45,6 +45,9 @@ interface HeroBrandTransition {
 export interface HeroSequenceSource {
   key: HeroSequenceKey;
   path: string;
+  filenamePattern: string;
+  extension: string;
+  version: string;
   frameCount: number;
   scrollScreens: number;
   initialFrameCount: number;
@@ -62,9 +65,19 @@ interface HeroConfig {
   dprCap: number;
   preloadConcurrency: number;
   decodeConcurrency: number;
+  maxDecodeQueue: number;
+  criticalFrameRadius: number;
+  nearFrameRadius: number;
+  fullPrefetchAhead: number;
+  conservativePrefetchAhead: number;
+  constrainedDownlinkMbps: number;
   mobileExperienceQuery: string;
   officialLogoPath: string;
 }
+
+// Increment this value whenever either checked-in frame sequence changes.
+// It is appended to every frame URL so deployments cannot reuse stale frames.
+export const heroSequenceVersion = "2026-07-30-hero-1";
 
 export const desktopHeroBeats = [
   {
@@ -186,6 +199,9 @@ export const heroConfig: HeroConfig = {
   desktop: {
     key: "desktop",
     path: "/sequences/hero/desktop/",
+    filenamePattern: "frame-{frame}",
+    extension: "webp",
+    version: heroSequenceVersion,
     frameCount: 192,
     scrollScreens: 4,
     initialFrameCount: 8,
@@ -209,6 +225,9 @@ export const heroConfig: HeroConfig = {
   mobile: {
     key: "mobile",
     path: "/sequences/hero/mobile/",
+    filenamePattern: "frame-{frame}",
+    extension: "webp",
+    version: heroSequenceVersion,
     frameCount: 160,
     scrollScreens: 2.75,
     initialFrameCount: 6,
@@ -230,11 +249,17 @@ export const heroConfig: HeroConfig = {
     },
   },
   dprCap: 2,
-  preloadConcurrency: 4,
+  preloadConcurrency: 2,
   decodeConcurrency: 2,
+  maxDecodeQueue: 20,
+  criticalFrameRadius: 2,
+  nearFrameRadius: 6,
+  fullPrefetchAhead: 12,
+  conservativePrefetchAhead: 7,
+  constrainedDownlinkMbps: 1.5,
   mobileExperienceQuery:
     "(max-width: 900px) and (any-pointer: coarse)",
-  officialLogoPath: "/brand/edsa-logo.svg",
+  officialLogoPath: "/brand/edsa-logo.optimized.svg",
 };
 
 export function clamp(value: number, minimum: number, maximum: number) {
@@ -324,8 +349,14 @@ export function getHeroFrameSource(
     source.frameCount - 1,
   );
   const fileNumber = String(clampedFrame + 1).padStart(4, "0");
+  const filename = source.filenamePattern.replace(
+    "{frame}",
+    fileNumber,
+  );
 
-  return `${source.path}frame-${fileNumber}.webp`;
+  return `${source.path}${filename}.${source.extension}?v=${encodeURIComponent(
+    source.version,
+  )}`;
 }
 
 export function getHeroFrameFromProgress(

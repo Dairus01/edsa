@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: "Eagle’s Dominion Synergy Assembly",
   description:
     "A Christian community in Sapele where people encounter God, grow in faith, and find belonging.",
+  icons: {
+    icon: "/brand/edsa-logo.optimized.svg",
+  },
 };
 
 export default function RootLayout({
