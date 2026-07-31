@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 
+import { church } from "@/content/church";
+
 import "./globals.css";
 
 const outfit = Outfit({
@@ -10,9 +12,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Eagle’s Dominion Synergy Assembly",
-  description:
-    "A Christian community in Sapele where people encounter God, grow in faith, and find belonging.",
+  title: church.metadata.title,
+  description: church.metadata.description,
   icons: {
     icon: "/brand/edsa-logo.optimized.svg",
   },

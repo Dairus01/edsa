@@ -671,7 +671,7 @@ test("terminal frame failure clears aria-busy and exposes a semantic static fall
   );
   await page.goto("/");
   const hero = page.locator(".hero-sequence");
-  const alert = page.getByRole("alert");
+  const alert = hero.getByRole("alert");
 
   await expect(alert).toBeVisible();
   await expect(hero).toHaveAttribute("aria-busy", "false");

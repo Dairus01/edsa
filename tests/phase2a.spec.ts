@@ -55,11 +55,10 @@ test("Phase 2A follows the hero in the correct semantic order", async ({
       ),
     );
 
-  expect(order).toEqual([
+  expect(order.slice(0, 3)).toEqual([
     "hero-release",
     "who-we-are",
     "what-we-believe",
-    "boundary",
   ]);
 
   await expect(
@@ -84,9 +83,6 @@ test("Phase 2A follows the hero in the correct semantic order", async ({
     page.getByText("We are people being transformed by grace.", {
       exact: true,
     }),
-  ).toBeAttached();
-  await expect(
-    page.getByText("The story continues.", { exact: true }),
   ).toBeAttached();
   expect(errors).toEqual([]);
 });

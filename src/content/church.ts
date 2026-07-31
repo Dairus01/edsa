@@ -29,4 +29,9 @@ export const church = {
       "https://www.facebook.com/people/Eagles-Dominion-Synergy-Assembly-EDSA/61584296051802/",
     maps: "https://maps.app.goo.gl/TRLRY64LkofajeFf9",
   },
+  metadata: {
+    title: "Eagle’s Dominion Synergy Assembly | EDSA Sapele",
+    description:
+      "Eagle’s Dominion Synergy Assembly is a Christian community in Sapele where people gather to worship, grow in faith, and find belonging. Join EDSA at 107 Okpe Road, opposite Odebala Plaza.",
+  },
 } as const;

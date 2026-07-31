@@ -1,4 +1,8 @@
 export const homepage = {
+  navigation: {
+    experience: "Experience",
+    visit: "Visit",
+  },
   whoWeAre: {
     heading: "More than a Sunday gathering.",
     paragraphs: [
@@ -38,5 +42,203 @@ export const homepage = {
       alt: "Members of the EDSA community gathered together in a warmly lit service.",
     },
   },
-  boundary: "The story continues.",
+  whatHappensHere: {
+    heading: "Church is more than something you watch.",
+    intro: [
+      "It is something we live together.",
+      "At EDSA, every gathering is an opportunity to turn our attention toward God, receive strength from His Word, pray with expectation, and walk alongside people who are growing through life just as we are.",
+    ],
+    moments: [
+      {
+        title: "Worship",
+        copy: [
+          "We worship with freedom, gratitude, and expectation.",
+          "Not as spectators watching a performance, but as people responding to God together.",
+        ],
+        image: {
+          src: "/images/worship/The king is forever exalted 🙌🙌..%23sundayservice %23worshipmoments %23edsaintl %23sapele %23gospelmusic.webp",
+          width: 1080,
+          height: 1080,
+          alt: "Women worshipping together during an EDSA gathering.",
+          position: "center center",
+        },
+      },
+      {
+        title: "The Word",
+        copy: [
+          "We open Scripture because faith must speak to real life.",
+          "The goal is not simply to hear another message, but to leave strengthened, challenged, and equipped to live differently.",
+        ],
+        image: {
+          src: "/images/preaching/Kingdom%20wealth%20is%20never%20about%20accumulation%3B%20it%E2%80%99s%20about%20distribution.%20God%20entrusts%20us%20with%20resou%20(1).webp",
+          width: 1170,
+          height: 1170,
+          alt: "A preacher sharing a message during an EDSA gathering.",
+          position: "center 34%",
+        },
+      },
+      {
+        title: "Prayer",
+        copy: [
+          "We pray because no burden was meant to be carried alone.",
+          "In moments of hope, uncertainty, gratitude, and need, we bring our lives honestly before God.",
+        ],
+        image: {
+          src: "/images/worship/The king is forever exalted 🙌🙌..%23sundayservice %23worshipmoments %23edsaintl %23sapele %23gospelmusic (1).webp",
+          width: 1080,
+          height: 1080,
+          alt: "A man praying with the congregation during an EDSA service.",
+          position: "center 38%",
+        },
+      },
+      {
+        title: "Community",
+        copy: [
+          "People arrive with different stories, but no one was created to walk alone.",
+          "Relationships are formed, families are strengthened, and people learn to carry one another through every season.",
+        ],
+        image: {
+          src: "/images/community/Kingdom%20wealth%20is%20never%20about%20accumulation%3B%20it%E2%80%99s%20about%20distribution.%20God%20entrusts%20us%20with%20resou.webp",
+          width: 1170,
+          height: 1170,
+          alt: "People listening together during an EDSA gathering.",
+          position: "center center",
+        },
+      },
+    ],
+    closing: "This is what it means to gather.",
+  },
+  theWord: {
+    heading: "A Word for where you are.",
+    paragraphs: [
+      "At EDSA, Scripture is not treated as distant language.",
+      "It is opened with conviction, explained with clarity, and brought into the realities of everyday life.",
+      "We believe the Word should meet people in their questions, strengthen them in difficult seasons, challenge them to grow, and give them wisdom for the road ahead.",
+      "Across generations, voices rise to teach, encourage, and call us forward.",
+    ],
+    closing: [
+      "We do not gather only to hear.",
+      "We gather so that what we hear can shape how we live.",
+    ],
+    images: [
+      {
+        src: "/images/preaching/And%20God%C2%A0is%C2%A0able%20to%20make%20all%20grace%20abound%20toward%20you%3B%20that%20ye%2C%20always%20having%20all%20sufficiency%20in.webp",
+        width: 1170,
+        height: 1170,
+        alt: "A preacher speaking from a lectern during an EDSA gathering.",
+        beat: "Scripture for real life.",
+        position: "center center",
+      },
+      {
+        src: "/images/preaching/Kingdom%20wealth%20is%20never%20about%20accumulation%3B%20it%E2%80%99s%20about%20distribution.%20God%20entrusts%20us%20with%20resou%20(1).webp",
+        width: 1170,
+        height: 1170,
+        alt: "A minister teaching from the stage during an EDSA gathering.",
+        beat: "Strength for difficult seasons.",
+        position: "center 34%",
+      },
+      {
+        src: "/images/preaching/The%20king%20is%20forever%20exalted%20%F0%9F%99%8C%F0%9F%99%8C..%23sundayservice%20%23worshipmoments%20%23edsaintl%20%23sapele%20%23gospelmusic%20(3).webp",
+        width: 1080,
+        height: 1080,
+        alt: "A woman sharing a message from the stage during an EDSA gathering.",
+        beat: "Truth that challenges us to grow.",
+        position: "center center",
+      },
+      {
+        src: "/images/preaching/717186277_18053818865773015_5371683729289110217_n.webp",
+        width: 1170,
+        height: 1170,
+        alt: "A young speaker holding a microphone during an EDSA gathering.",
+        beat: "A voice for every generation.",
+        position: "center 32%",
+      },
+    ],
+  },
+  everyGeneration: {
+    heading: "Tomorrow’s church is already in the room.",
+    paragraphs: [
+      "Children and young people are not waiting at the edge of the church’s future.",
+      "They are already part of what God is doing today.",
+      "We want every generation to discover confidence, grow in faith, develop their gifts, and understand that their lives carry meaning.",
+      "Because faith was never meant to stop with us.",
+      "What we build today should strengthen the generation that follows.",
+    ],
+    closing: "Every generation matters.",
+    images: {
+      primary: {
+        src: "/images/children/Oh%20that%C2%A0men%C2%A0would%20praise%20the%20LORD%C2%A0for%C2%A0his%20goodness%2C%20and%C2%A0for%C2%A0his%20wonderful%20works%20to%20the%20children%20(1).webp",
+        width: 1170,
+        height: 1170,
+        alt: "A child speaking into a microphone during an EDSA gathering.",
+        position: "center center",
+      },
+      speaker: {
+        src: "/images/preaching/717186277_18053818865773015_5371683729289110217_n.webp",
+        width: 1170,
+        height: 1170,
+        alt: "A young speaker addressing the congregation during an EDSA gathering.",
+        position: "center 30%",
+      },
+      community: {
+        src: "/images/children/Oh%20that%C2%A0men%C2%A0would%20praise%20the%20LORD%C2%A0for%C2%A0his%20goodness%2C%20and%C2%A0for%C2%A0his%20wonderful%20works%20to%20the%20children.webp",
+        width: 1170,
+        height: 1170,
+        alt: "Children taking part together on stage during an EDSA gathering.",
+        position: "center 62%",
+      },
+    },
+  },
+  whatToExpect: {
+    heading: "Your first visit does not have to feel unfamiliar.",
+    paragraphs: [
+      "You may arrive without knowing anyone.",
+      "You may not know the songs.",
+      "You may be carrying questions about faith, church, or life.",
+      "That is okay.",
+      "Expect passionate worship, biblical teaching, prayer, and a community of people pursuing God together.",
+      "You do not need to dress a certain way, pretend to have everything together, or know exactly what to do.",
+      "Come with your story.",
+      "Come with your questions.",
+      "Come as you are.",
+    ],
+    closing: "We will be glad to welcome you.",
+    image: {
+      src: "/images/community/713443461_18053818943773015_906575657939165069_n.webp",
+      width: 1170,
+      height: 1170,
+      alt: "People gathered together during an EDSA service.",
+      position: "center center",
+    },
+  },
+  planYourVisit: {
+    heading: "Plan your visit.",
+    directionsLabel: "Get Directions",
+    instagramLabel: "Instagram",
+    facebookLabel: "Facebook",
+  },
+  finalInvitation: {
+    heading: "There is a place for you here.",
+    paragraphs: [
+      "Maybe you have been in church your entire life.",
+      "Maybe this would be your first time walking through the doors.",
+      "Maybe you are full of faith.",
+      "Maybe you are carrying doubts.",
+      "Maybe you are searching for direction, healing, community, or simply somewhere to breathe.",
+      "Whatever your story, you do not have to have everything figured out before you arrive.",
+      "Come and encounter God.",
+      "Come and grow.",
+      "Come and find a community ready to walk with you.",
+    ],
+    finalStatement: "Welcome to EDSA.",
+    directionsLabel: "Get Directions",
+    instagramLabel: "Connect on Instagram",
+    image: {
+      src: "/images/building/And out of them shall proceed thanksgiving and the voice of them that make merry- and I will m.webp",
+      width: 1170,
+      height: 1170,
+      alt: "People welcoming visitors outside Eagle’s Dominion Synergy Assembly.",
+      position: "center center",
+    },
+  },
 } as const;
