@@ -13,8 +13,6 @@ import Lenis from "lenis";
 
 import { HeroCopy, type HeroCopyHandle } from "./HeroCopy";
 import {
-  getHeroBrandOpacity,
-  getHeroBrandVeilOpacity,
   getHeroEnvelopeOpacity,
   getHeroFrameFromProgress,
   getHeroFrameSource,
@@ -28,8 +26,6 @@ import {
   type SequenceCanvasStatus,
 } from "./SequenceCanvas";
 import { useImageSequence } from "./useImageSequence";
-
-type OfficialLogoStatus = "idle" | "loading" | "ready" | "error";
 
 function useHeroDeviceProfile() {
   const [sourceKey, setSourceKey] =
@@ -81,20 +77,9 @@ export function HeroSequence() {
   const copyRef = useRef<HeroCopyHandle>(null);
   const canvasRef = useRef<SequenceCanvasHandle>(null);
   const energyScrimRef = useRef<HTMLDivElement>(null);
-  const brandVeilRef = useRef<HTMLDivElement>(null);
-  const brandStageRef = useRef<HTMLDivElement>(null);
   const scrollCueRef = useRef<HTMLDivElement>(null);
-  const latestRenderedFrameRef = useRef(0);
   const activeEngineKeyRef = useRef("");
   const staticLayoutRef = useRef(false);
-  const officialLogoStatusRef =
-    useRef<OfficialLogoStatus>("idle");
-  const officialLogoTransitionRef = useRef(0);
-  const officialLogoRafRef = useRef<number | null>(null);
-  const [officialLogoRequested, setOfficialLogoRequested] =
-    useState(false);
-  const [officialLogoStatus, setOfficialLogoStatus] =
-    useState<OfficialLogoStatus>("idle");
   const [heroPreloadActive, setHeroPreloadActive] = useState(true);
   const [canvasState, setCanvasState] = useState<{
     engineKey: string;
@@ -133,162 +118,30 @@ export function HeroSequence() {
   activeEngineKeyRef.current = sequence.engineKey;
   staticLayoutRef.current = staticLayout;
 
-  const requestOfficialLogo = useCallback(() => {
-    if (officialLogoStatusRef.current !== "idle") {
-      return;
-    }
-
-    officialLogoStatusRef.current = "loading";
-    setOfficialLogoStatus("loading");
-    setOfficialLogoRequested(true);
-  }, []);
-
   const renderFrameState = useCallback(
     (frame: number) => {
       const section = sectionRef.current;
-      const brandVeil = brandVeilRef.current;
-      const brandStage = brandStageRef.current;
       const energyScrim = energyScrimRef.current;
-      const logoTransitionProgress =
-        officialLogoTransitionRef.current;
-      const logoReady =
-        officialLogoStatusRef.current === "ready";
-
-      latestRenderedFrameRef.current = frame;
 
       if (section) {
         section.dataset.currentFrame = String(frame);
-        section.dataset.logoTransition = String(
-          logoTransitionProgress,
-        );
       }
 
       if (staticLayoutRef.current) {
-        if (brandStage) {
-          brandStage.style.opacity = "1";
-          brandStage.style.setProperty(
-            "--hero-logo-progress",
-            String(logoTransitionProgress),
-          );
-        }
-
-        copyRef.current?.renderFrame(frame, logoReady);
+        copyRef.current?.renderFrame(frame, false);
         return;
       }
 
-      const brandEnvelope = getHeroBrandOpacity(
-        source.brandTransition,
-        frame,
-      );
-      const brandOpacity = brandEnvelope * logoTransitionProgress;
-
-      copyRef.current?.renderFrame(
-        frame,
-        logoReady && brandOpacity >= 0.5,
-      );
+      copyRef.current?.renderFrame(frame, false);
 
       if (energyScrim) {
         energyScrim.style.opacity = String(
           getHeroEnvelopeOpacity(source.energyScrim, frame),
         );
       }
-
-      if (brandStage) {
-        brandStage.style.opacity = String(brandOpacity);
-        brandStage.style.setProperty(
-          "--hero-logo-progress",
-          String(logoTransitionProgress),
-        );
-      }
-
-      if (brandVeil) {
-        const veilEnvelope = getHeroBrandVeilOpacity(
-          source.brandTransition,
-          frame,
-        );
-        const veilOpacity =
-          veilEnvelope *
-          logoTransitionProgress *
-          (1 - brandOpacity);
-
-        brandVeil.style.opacity = String(veilOpacity);
-      }
     },
     [source],
   );
-
-  const stopOfficialLogoTransition = useCallback(() => {
-    if (officialLogoRafRef.current !== null) {
-      window.cancelAnimationFrame(officialLogoRafRef.current);
-      officialLogoRafRef.current = null;
-    }
-  }, []);
-
-  const startOfficialLogoTransition = useCallback(() => {
-    stopOfficialLogoTransition();
-
-    if (reducedMotion) {
-      officialLogoTransitionRef.current = 1;
-      renderFrameState(latestRenderedFrameRef.current);
-      return;
-    }
-
-    const startProgress = officialLogoTransitionRef.current;
-    const startTime = performance.now();
-    const duration = Math.max(180, 700 * (1 - startProgress));
-
-    const tick = (time: number) => {
-      const elapsed = Math.min(1, (time - startTime) / duration);
-
-      officialLogoTransitionRef.current =
-        startProgress +
-        (1 - startProgress) * smoothstep(0, 1, elapsed);
-      renderFrameState(latestRenderedFrameRef.current);
-
-      if (elapsed < 1) {
-        officialLogoRafRef.current =
-          window.requestAnimationFrame(tick);
-      } else {
-        officialLogoTransitionRef.current = 1;
-        officialLogoRafRef.current = null;
-        renderFrameState(latestRenderedFrameRef.current);
-      }
-    };
-
-    officialLogoRafRef.current = window.requestAnimationFrame(tick);
-  }, [
-    reducedMotion,
-    renderFrameState,
-    stopOfficialLogoTransition,
-  ]);
-
-  const handleOfficialLogoLoad = useCallback(() => {
-    if (officialLogoStatusRef.current === "error") {
-      return;
-    }
-
-    officialLogoStatusRef.current = "ready";
-    setOfficialLogoStatus("ready");
-    startOfficialLogoTransition();
-  }, [startOfficialLogoTransition]);
-
-  const handleOfficialLogoError = useCallback(() => {
-    if (officialLogoStatusRef.current === "error") {
-      return;
-    }
-
-    stopOfficialLogoTransition();
-    officialLogoStatusRef.current = "error";
-    officialLogoTransitionRef.current = 0;
-    setOfficialLogoStatus("error");
-    renderFrameState(latestRenderedFrameRef.current);
-
-    if (process.env.NODE_ENV !== "production") {
-      console.warn(
-        "[hero-sequence] The official logo failed to load; retaining the sequence/poster fallback.",
-      );
-    }
-  }, [renderFrameState, stopOfficialLogoTransition]);
 
   const updateScrollCue = useCallback((progress: number) => {
     const cue = scrollCueRef.current;
@@ -320,7 +173,6 @@ export function HeroSequence() {
   );
 
   useEffect(() => {
-    latestRenderedFrameRef.current = initialFrame;
     canvasRef.current?.renderFrame(initialFrame);
     renderFrameState(initialFrame);
   }, [
@@ -330,55 +182,6 @@ export function HeroSequence() {
     sequence.isReady,
     staticLayout,
   ]);
-
-  useEffect(() => {
-    if (staticLayout || sequence.error) {
-      requestOfficialLogo();
-      return;
-    }
-
-    if (!sequence.isReady) {
-      return;
-    }
-
-    if ("requestIdleCallback" in window) {
-      const idleHandle = window.requestIdleCallback(
-        requestOfficialLogo,
-        { timeout: 2500 },
-      );
-
-      return () => {
-        window.cancelIdleCallback(idleHandle);
-      };
-    }
-
-    const timeoutHandle = setTimeout(requestOfficialLogo, 1200);
-
-    return () => {
-      clearTimeout(timeoutHandle);
-    };
-  }, [
-    requestOfficialLogo,
-    sequence.error,
-    sequence.isReady,
-    staticLayout,
-  ]);
-
-  useEffect(() => {
-    if (
-      staticLayout &&
-      officialLogoStatusRef.current === "ready"
-    ) {
-      startOfficialLogoTransition();
-    }
-  }, [startOfficialLogoTransition, staticLayout]);
-
-  useEffect(
-    () => () => {
-      stopOfficialLogoTransition();
-    },
-    [stopOfficialLogoTransition],
-  );
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -428,10 +231,6 @@ export function HeroSequence() {
       section.dataset.targetFrame = String(targetFrame);
       canvasRef.current?.renderFrame(targetFrame);
       updateScrollCue(progress);
-
-      if (progress >= 0.62) {
-        requestOfficialLogo();
-      }
     };
     const scheduleRefresh = () => {
       if (disposed) {
@@ -508,7 +307,6 @@ export function HeroSequence() {
       lenis.destroy();
     };
   }, [
-    requestOfficialLogo,
     sequence.engineKey,
     sequence.isReady,
     sequence.readyEngineKey,
@@ -518,29 +316,13 @@ export function HeroSequence() {
     updateScrollCue,
   ]);
 
-  const officialLogo = (
-    <img
-      className="hero-sequence__brand-logo"
-      src={
-        officialLogoRequested && officialLogoStatus !== "error"
-          ? heroConfig.officialLogoPath
-          : undefined
-      }
-      width="2120"
-      height="2016"
-      alt=""
-      decoding="async"
-      fetchPriority={staticLayout ? "high" : "low"}
-      onLoad={handleOfficialLogoLoad}
-      onError={handleOfficialLogoError}
-    />
-  );
   const staticBrand = (
     <div
-      ref={brandStageRef}
       className="hero-sequence__static-brand"
-      data-logo-status={officialLogoStatus}
       aria-hidden="true"
+      style={{
+        aspectRatio: `${source.sourceWidth} / ${source.sourceHeight}`,
+      }}
     >
       <img
         className="hero-sequence__static-poster"
@@ -550,7 +332,6 @@ export function HeroSequence() {
         alt=""
         decoding="async"
       />
-      {officialLogo}
     </div>
   );
 
@@ -571,7 +352,6 @@ export function HeroSequence() {
       data-frame-count={source.frameCount}
       data-current-frame={initialFrame}
       data-loading-mode={sequence.loadingMode}
-      data-logo-status={officialLogoStatus}
       data-poster-error={
         posterErrorEngineKey === sequence.engineKey
       }
@@ -617,20 +397,6 @@ export function HeroSequence() {
               className="hero-sequence__energy-scrim"
               aria-hidden="true"
             />
-            <div
-              ref={brandVeilRef}
-              className="hero-sequence__brand-veil"
-              aria-hidden="true"
-            />
-
-            <div
-              ref={brandStageRef}
-              className="hero-sequence__brand-stage"
-              data-logo-status={officialLogoStatus}
-              aria-hidden="true"
-            >
-              {officialLogo}
-            </div>
           </>
         ) : null}
 
@@ -639,7 +405,11 @@ export function HeroSequence() {
           beats={source.beats}
           reducedMotion={reducedMotion}
           staticLayout={staticLayout}
-          staticBrand={staticLayout ? staticBrand : undefined}
+          staticBrand={
+            staticLayout && !sequence.error
+              ? staticBrand
+              : undefined
+          }
         />
 
         {!staticLayout ? (

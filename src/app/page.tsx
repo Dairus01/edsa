@@ -1,4 +1,8 @@
 import { HeroSequence } from "@/components/hero/HeroSequence";
+import { WhatWeBelieve } from "@/components/sections/WhatWeBelieve";
+import { WhoWeAre } from "@/components/sections/WhoWeAre";
+import { HeroRelease } from "@/components/transitions/HeroRelease";
+import { homepage } from "@/content/homepage";
 
 export default function Home() {
   return (
@@ -8,12 +12,15 @@ export default function Home() {
       </a>
       <main>
         <HeroSequence />
-        <section
-          id="main-content"
-          className="hero-release"
-          aria-label="Continue to the EDSA story"
-          tabIndex={-1}
-        />
+        <HeroRelease />
+        <WhoWeAre />
+        <WhatWeBelieve />
+        <div
+          className="phase-two-boundary"
+          data-phase2-section="boundary"
+        >
+          <p>{homepage.boundary}</p>
+        </div>
       </main>
     </>
   );

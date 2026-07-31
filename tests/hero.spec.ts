@@ -475,7 +475,19 @@ test("reduced motion changes at runtime and remains reachable in extreme viewpor
 
   expect(largeTextLayout.horizontalOverflow).toBe(false);
   await page.evaluate(() => {
-    window.scrollTo(0, document.documentElement.scrollHeight);
+    const hero = document.querySelector<HTMLElement>(
+      ".hero-sequence",
+    );
+
+    window.scrollTo(
+      0,
+      Math.max(
+        0,
+        (hero?.offsetTop ?? 0) +
+          (hero?.offsetHeight ?? document.documentElement.scrollHeight) -
+          window.innerHeight,
+      ),
+    );
   });
   await expect(
     page.getByText("Continue to discover who we are."),
@@ -604,71 +616,50 @@ test("poster survives unavailable canvas context", async ({ page }) => {
   await expect(page.locator(".hero-sequence__poster")).toBeVisible();
 });
 
-test("late official logo crossfades independently and failure retains final frame", async ({
-  browser,
+test("hero ends on the restored frame with welcome copy and no separate logo stage", async ({
+  page,
 }) => {
-  const lateContext = await browser.newContext({
-    viewport: { width: 1280, height: 720 },
-  });
-  const latePage = await lateContext.newPage();
+  await page.goto("/");
+  const hero = await waitForReady(page);
+  await scrollToProgress(page, 1);
+  await page.waitForTimeout(300);
 
-  await latePage.route(
-    "**/brand/edsa-logo.optimized.svg",
-    async (route) => {
-      const response = await route.fetch();
-
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-      await route.fulfill({ response });
-    },
-  );
-  await latePage.goto("/");
-  let hero = await waitForReady(latePage);
-  await scrollToProgress(latePage, 1);
-  await expect(hero).toHaveAttribute("data-logo-status", "loading");
-  const beforeLoadOpacity = Number(
-    await latePage
-      .locator(".hero-sequence__brand-stage")
-      .evaluate((element) => getComputedStyle(element).opacity),
-  );
-
-  expect(beforeLoadOpacity).toBe(0);
-  await expect(hero).toHaveAttribute("data-logo-status", "ready");
-  await expect
-    .poll(async () =>
-      Number(
-        await latePage
-          .locator(".hero-sequence__brand-stage")
-          .evaluate((element) => getComputedStyle(element).opacity),
-      ),
-    )
-    .toBeGreaterThan(0.95);
-  await lateContext.close();
-
-  const failureContext = await browser.newContext({
-    viewport: { width: 1280, height: 720 },
-  });
-  const failurePage = await failureContext.newPage();
-
-  await failurePage.route(
-    "**/brand/edsa-logo.optimized.svg",
-    (route) => route.abort(),
-  );
-  await failurePage.goto("/");
-  hero = await waitForReady(failurePage);
-  await scrollToProgress(failurePage, 1);
-  await expect(hero).toHaveAttribute("data-logo-status", "error");
   await expect(hero).toHaveAttribute("data-canvas-ready", "true");
   await expect(
-    failurePage.locator('[data-hero-copy="welcome"]'),
+    page.locator('[data-hero-copy="welcome"]'),
   ).toBeVisible();
-  const failureOpacity = Number(
-    await failurePage
-      .locator(".hero-sequence__brand-stage")
-      .evaluate((element) => getComputedStyle(element).opacity),
-  );
+  await expect(
+    page.locator(".hero-sequence__brand-stage"),
+  ).toHaveCount(0);
+  await expect(
+    page.locator(".hero-sequence__brand-logo"),
+  ).toHaveCount(0);
 
-  expect(failureOpacity).toBe(0);
-  await failureContext.close();
+  const ending = await page.evaluate(() => {
+    const welcome = document.querySelector<HTMLElement>(
+      '[data-hero-copy="welcome"]',
+    );
+    const canvas = document.querySelector<HTMLElement>(
+      ".hero-sequence__canvas",
+    );
+    const releaseVeil = document.querySelector<HTMLElement>(
+      ".hero-release__veil",
+    );
+
+    return {
+      canvasOpacity: canvas ? getComputedStyle(canvas).opacity : "0",
+      releaseBackground: releaseVeil
+        ? getComputedStyle(releaseVeil).backgroundImage
+        : "none",
+      welcomeColor: welcome
+        ? getComputedStyle(welcome).color
+        : "transparent",
+    };
+  });
+
+  expect(ending.canvasOpacity).toBe("1");
+  expect(ending.releaseBackground).toContain("rgb(5, 7, 13)");
+  expect(ending.welcomeColor).toBe("rgb(244, 242, 247)");
 });
 
 test("terminal frame failure clears aria-busy and exposes a semantic static fallback", async ({
@@ -689,7 +680,7 @@ test("terminal frame failure clears aria-busy and exposes a semantic static fall
     page.getByText("Eagle’s Dominion", { exact: true }),
   ).toBeVisible();
   await expect(
-    page.getByText("Nothing Missing.", { exact: true }),
+    hero.getByText("Nothing Missing.", { exact: true }),
   ).toBeVisible();
   await expect(
     page.getByText("Continue to discover who we are."),

@@ -15,20 +15,15 @@ function trackErrors(page: Page) {
   return errors;
 }
 
-test("production smoke has versioned frames, optimized branding, and clean static fallback", async ({
+test("production smoke has versioned frames, a dark final welcome, and clean static fallback", async ({
   page,
 }) => {
   const errors = trackErrors(page);
   const frameRequests: string[] = [];
-  const logoRequests: string[] = [];
 
   page.on("request", (request) => {
     if (request.url().includes("/sequences/hero/")) {
       frameRequests.push(request.url());
-    }
-
-    if (request.url().includes("/brand/")) {
-      logoRequests.push(request.url());
     }
   });
 
@@ -63,19 +58,12 @@ test("production smoke has versioned frames, optimized branding, and clean stati
       ),
     );
   });
-  await expect
-    .poll(() =>
-      logoRequests.some((request) =>
-        request.includes("/brand/edsa-logo.optimized.svg"),
-      ),
-    )
-    .toBe(true);
-  await expect(hero).toHaveAttribute("data-logo-status", "ready");
-  await expect
-    .poll(async () =>
-      Number(await hero.getAttribute("data-logo-transition")),
-    )
-    .toBeGreaterThan(0.99);
+  await expect(
+    page.locator('[data-hero-copy="welcome"]'),
+  ).toBeVisible();
+  await expect(
+    page.locator(".hero-sequence__brand-stage"),
+  ).toHaveCount(0);
 
   await page.screenshot({
     path: "test-results/hero-production-final.png",
