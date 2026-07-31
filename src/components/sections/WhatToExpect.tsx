@@ -7,12 +7,13 @@ export function WhatToExpect() {
 
   return (
     <section
+      id="first-visit"
       className="what-to-expect"
       data-phase2-section="what-to-expect"
     >
       <div className="what-to-expect__inner">
         <div className="what-to-expect__copy">
-          <h2>{content.heading}</h2>
+          <h2 tabIndex={-1}>{content.heading}</h2>
           <div className="what-to-expect__body">
             {content.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>

@@ -174,9 +174,14 @@ test("navigation exposes early visit access without an image logo", async ({
   await waitForHero(page);
 
   const header = page.locator(".site-header");
-  const visitLink = header.getByRole("link", { name: "Visit" });
+  const visitLink = header.getByRole("link", {
+    name: "Visit",
+    exact: true,
+  });
 
-  await expect(header.getByText("EDSA", { exact: true })).toBeVisible();
+  await expect(header.locator(".site-header__wordmark")).toHaveText(
+    "EDSA",
+  );
   await expect(header.locator("img")).toHaveCount(0);
   await expect(visitLink).toHaveAttribute("href", "#visit");
   await visitLink.click();
@@ -380,7 +385,11 @@ test("interactive touch targets meet the 44 pixel minimum", async ({ page }) => 
     )
     .evaluateAll((links) =>
       links
-        .filter((link) => getComputedStyle(link).display !== "none")
+        .filter(
+          (link) =>
+            getComputedStyle(link).visibility !== "hidden" &&
+            link.getClientRects().length > 0,
+        )
         .map((link) => {
           const bounds = link.getBoundingClientRect();
 

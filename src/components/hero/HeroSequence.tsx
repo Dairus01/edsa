@@ -11,6 +11,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 
+import { setLenisInstance } from "@/lib/lenis-instance";
+
 import { HeroCopy, type HeroCopyHandle } from "./HeroCopy";
 import {
   getHeroEnvelopeOpacity,
@@ -211,6 +213,7 @@ export function HeroSequence() {
       wheelMultiplier: 1,
       overscroll: true,
     });
+    setLenisInstance(lenis);
     const updateLenis = (time: number) => {
       lenis.raf(time * 1000);
     };
@@ -304,6 +307,7 @@ export function HeroSequence() {
       gsap.ticker.remove(updateLenis);
       gsap.ticker.lagSmoothing(500, 33);
       lenis.off("scroll", updateScrollTrigger);
+      setLenisInstance(null);
       lenis.destroy();
     };
   }, [
@@ -337,6 +341,7 @@ export function HeroSequence() {
 
   return (
     <section
+      id="home"
       ref={sectionRef}
       className="hero-sequence"
       aria-label="Nothing Missing. Nothing Broken."

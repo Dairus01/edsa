@@ -1,8 +1,4 @@
 export const homepage = {
-  navigation: {
-    experience: "Experience",
-    visit: "Visit",
-  },
   whoWeAre: {
     heading: "More than a Sunday gathering.",
     paragraphs: [

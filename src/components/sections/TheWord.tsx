@@ -1,17 +1,19 @@
 import { PreachingDepth } from "@/components/motion/PreachingDepth";
+import { ScriptureMoment } from "@/components/content/ScriptureMoment";
 import { homepage } from "@/content/homepage";
+import { scripture } from "@/content/scripture";
 
 export function TheWord() {
   const content = homepage.theWord;
 
   return (
     <section
-      id="word"
+      id="the-word"
       className="the-word"
       data-phase2-section="the-word"
     >
       <div className="the-word__intro">
-        <h2>{content.heading}</h2>
+        <h2 tabIndex={-1}>{content.heading}</h2>
 
         <div className="the-word__body">
           {content.paragraphs.map((paragraph) => (
@@ -21,6 +23,11 @@ export function TheWord() {
       </div>
 
       <PreachingDepth images={content.images} />
+
+      <ScriptureMoment
+        entry={scripture.word}
+        className="the-word__scripture"
+      />
 
       <div className="the-word__closing">
         {content.closing.map((line) => (

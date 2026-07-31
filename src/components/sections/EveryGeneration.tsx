@@ -1,24 +1,31 @@
 import Image from "next/image";
 
+import { ScriptureMoment } from "@/components/content/ScriptureMoment";
 import { homepage } from "@/content/homepage";
+import { scripture } from "@/content/scripture";
 
 export function EveryGeneration() {
   const content = homepage.everyGeneration;
 
   return (
     <section
+      id="generations"
       className="every-generation"
       data-phase2-section="every-generation"
     >
       <div className="every-generation__inner">
         <div className="every-generation__copy">
-          <h2>{content.heading}</h2>
+          <h2 tabIndex={-1}>{content.heading}</h2>
           <div className="every-generation__body">
             {content.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
           <p className="every-generation__closing">{content.closing}</p>
+          <ScriptureMoment
+            entry={scripture.generations}
+            className="every-generation__scripture"
+          />
         </div>
 
         <div className="every-generation__images">

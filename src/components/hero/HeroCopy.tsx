@@ -34,7 +34,7 @@ const heroCopy: Record<
     className: "hero-copy__beat--identity",
     content: (
       <>
-        <h1 className="hero-copy__title">
+        <h1 className="hero-copy__title" tabIndex={-1}>
           <span>Eagle’s Dominion</span>
           <span>Synergy Assembly</span>
         </h1>
@@ -132,7 +132,7 @@ export const HeroCopy = forwardRef<HeroCopyHandle, HeroCopyProps>(
           data-reduced-motion={String(reducedMotion)}
         >
           <div className="hero-copy__reduced-identity">
-            <h1 className="hero-copy__title">
+            <h1 className="hero-copy__title" tabIndex={-1}>
               <span>Eagle’s Dominion</span>
               <span>Synergy Assembly</span>
             </h1>

@@ -1,6 +1,6 @@
 import { HeroSequence } from "@/components/hero/HeroSequence";
 import { Footer } from "@/components/layout/Footer";
-import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SiteNavigation } from "@/components/layout/SiteNavigation";
 import { EveryGeneration } from "@/components/sections/EveryGeneration";
 import { FinalInvitation } from "@/components/sections/FinalInvitation";
 import { PlanYourVisit } from "@/components/sections/PlanYourVisit";
@@ -31,7 +31,7 @@ const structuredData = {
 export default function Home() {
   return (
     <>
-      <a className="skip-link" href="#main-content">
+      <a className="skip-link" href="#who-we-are-heading">
         Skip the opening story
       </a>
       <script
@@ -40,7 +40,7 @@ export default function Home() {
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
-      <SiteHeader />
+      <SiteNavigation />
       <main>
         <HeroSequence />
         <HeroRelease />

@@ -1,7 +1,9 @@
 import Image from "next/image";
 
 import { MomentObserver } from "@/components/motion/MomentObserver";
+import { ScriptureMoment } from "@/components/content/ScriptureMoment";
 import { homepage } from "@/content/homepage";
+import { scripture } from "@/content/scripture";
 
 export function WhatHappensHere() {
   const content = homepage.whatHappensHere;
@@ -17,7 +19,7 @@ export function WhatHappensHere() {
       <MomentObserver />
 
       <div className="what-happens__intro">
-        <h2>{content.heading}</h2>
+        <h2 tabIndex={-1}>{content.heading}</h2>
         <div>
           {content.intro.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
@@ -26,7 +28,11 @@ export function WhatHappensHere() {
       </div>
 
       <div className="what-happens__story">
-        <div className="what-happens__stage" aria-label="Life at EDSA">
+        <div
+          className="what-happens__stage"
+          role="group"
+          aria-label="Life at EDSA"
+        >
           {content.moments.map((moment, index) => (
             <Image
               className="what-happens__stage-image"
@@ -77,6 +83,10 @@ export function WhatHappensHere() {
       </div>
 
       <p className="what-happens__closing">{content.closing}</p>
+      <ScriptureMoment
+        entry={scripture.gathering}
+        className="what-happens__scripture"
+      />
     </section>
   );
 }

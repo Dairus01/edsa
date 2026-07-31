@@ -12,9 +12,13 @@ export function PlanYourVisit() {
       data-phase2-section="plan-your-visit"
     >
       <div className="plan-visit__inner">
-        <h2>{content.heading}</h2>
+        <h2 tabIndex={-1}>{content.heading}</h2>
 
-        <div className="plan-visit__times" aria-label="Service times">
+        <div
+          className="plan-visit__times"
+          role="group"
+          aria-label="Service times"
+        >
           <div>
             <h3>{church.services.sunday.label}</h3>
             <time>{church.services.sunday.time}</time>
