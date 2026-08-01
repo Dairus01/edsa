@@ -57,6 +57,8 @@ npm run typecheck  # Run TypeScript validation
 npm run test:e2e   # Run the Playwright suite
 npm run build      # Create a production build
 npm run start      # Serve the production build
+npm run preview    # Preview the OpenNext build locally
+npm run deploy     # Build and deploy to Cloudflare Workers
 ```
 
 Install Playwright's browser and system dependencies before the first browser test run when necessary:
@@ -67,13 +69,17 @@ npx playwright install --with-deps chromium
 
 ## Deployment
 
-Vercel is the simplest deployment target because this is a full-stack Next.js application. Ezra depends on the dynamic `/api/ezra` route and will not work on a static-only host.
+The production target is Cloudflare Workers through the OpenNext adapter. This preserves the dynamic `/api/ezra` route, response streaming, and the scroll-driven hero instead of treating the project as a static-only site.
 
-1. Import this repository into Vercel.
-2. Keep the detected framework as Next.js.
-3. Add `GEMINI_API_KEY` under Project Settings → Environment Variables.
-4. Apply the variable to Production and Preview.
-5. Deploy.
+```bash
+npx wrangler login
+npm run deploy
+npx wrangler secret put GEMINI_API_KEY
+```
+
+Store `GEMINI_API_KEY` as an encrypted Worker secret. Do not add it to `wrangler.jsonc`, commit `.dev.vars`, or expose it through a `NEXT_PUBLIC_` variable.
+
+The current deployment is available at [www.edsaintl.workers.dev](https://www.edsaintl.workers.dev). Cloudflare uses the standard `<worker>.<account-subdomain>.workers.dev` address format; a shorter custom address requires an owned domain connected under the Worker's Domains & Routes settings.
 
 The key stays on the server. The browser sends chat history to `/api/ezra`, and that route calls Google's Generative Language API and streams visible answer text back to the chat panel.
 

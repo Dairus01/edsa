@@ -42,3 +42,11 @@ dogfood-output/
 
 # source media retained locally after frame extraction
 public/videos/source/
+
+# OpenNext
+.open-next
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
