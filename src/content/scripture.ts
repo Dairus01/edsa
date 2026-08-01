@@ -35,7 +35,7 @@ export const scripture = {
     text:
       "He healeth the broken in heart, and bindeth up their wounds.",
     translation: "KJV",
-    sectionId: "what-we-believe",
+    sectionId: "identity",
     theme: "Healing and restoration",
     displayMode: "feature",
     alignment: "left",

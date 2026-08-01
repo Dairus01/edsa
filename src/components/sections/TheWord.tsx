@@ -1,39 +1,41 @@
-import { PreachingDepth } from "@/components/motion/PreachingDepth";
 import { ScriptureMoment } from "@/components/content/ScriptureMoment";
+import { PreachingDepth } from "@/components/motion/PreachingDepth";
 import { homepage } from "@/content/homepage";
+import { homepageImages } from "@/content/imageUsage";
 import { scripture } from "@/content/scripture";
 
+const wordImages = [
+  { ...homepageImages.wordPrimary, beat: "Conviction for real life." },
+  { ...homepageImages.wordSecondary, beat: "Clarity for the road ahead." },
+  { ...homepageImages.wordYouth, beat: "Truth carried forward." },
+] as const;
+
 export function TheWord() {
-  const content = homepage.theWord;
+  const content = homepage.word;
 
   return (
     <section
       id="the-word"
-      className="the-word"
-      data-phase2-section="the-word"
+      className="word-scene"
+      data-homepage-section="the-word"
     >
-      <div className="the-word__intro">
+      <div className="word-scene__header">
         <h2 tabIndex={-1}>{content.heading}</h2>
-
-        <div className="the-word__body">
+        <div>
           {content.paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
       </div>
 
-      <PreachingDepth images={content.images} />
+      <div className="word-scene__visual">
+        <PreachingDepth images={wordImages} />
+      </div>
 
       <ScriptureMoment
         entry={scripture.word}
-        className="the-word__scripture"
+        className="word-scene__scripture"
       />
-
-      <div className="the-word__closing">
-        {content.closing.map((line) => (
-          <p key={line}>{line}</p>
-        ))}
-      </div>
     </section>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowDown, ArrowUpRight } from "@phosphor-icons/react";
 import {
   forwardRef,
   useImperativeHandle,
@@ -39,9 +40,10 @@ const heroCopy: Record<
           <span>Synergy Assembly</span>
         </h1>
         <p className="hero-copy__body">
-          A Christian community in Sapele where people encounter God,
-          grow in faith, and find belonging.
+          A Christ-centred church devoted to worship, prayer, biblical
+          teaching, and lives transformed by grace.
         </p>
+        <HeroActions />
       </>
     ),
   },
@@ -137,9 +139,10 @@ export const HeroCopy = forwardRef<HeroCopyHandle, HeroCopyProps>(
               <span>Synergy Assembly</span>
             </h1>
             <p className="hero-copy__body">
-              A Christian community in Sapele where people encounter
-              God, grow in faith, and find belonging.
+              A Christ-centred church devoted to worship, prayer,
+              biblical teaching, and lives transformed by grace.
             </p>
+            <HeroActions />
           </div>
 
           {staticBrand}
@@ -191,3 +194,22 @@ export const HeroCopy = forwardRef<HeroCopyHandle, HeroCopyProps>(
     );
   },
 );
+
+function HeroActions() {
+  return (
+    <div
+      className="hero-copy__actions"
+      role="group"
+      aria-label="Opening actions"
+    >
+      <a className="hero-action hero-action--primary" href="#visit">
+        <span>Plan Your Visit</span>
+        <ArrowUpRight aria-hidden="true" weight="bold" />
+      </a>
+      <a className="hero-action hero-action--secondary" href="#identity">
+        <span>Discover EDSA</span>
+        <ArrowDown aria-hidden="true" weight="bold" />
+      </a>
+    </div>
+  );
+}

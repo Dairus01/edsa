@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-31T16:13:02Z",
+  "title": "Design System: Eagle’s Dominion Synergy Assembly",
+  "extensions": {
+    "colorMeta": {
+      "hero-night": {
+        "role": "neutral",
+        "displayName": "Hero Night",
+        "canonical": "#05070d",
+        "tonalRamp": [
+          "oklch(15% 0.015 266.4)",
+          "oklch(25% 0.015 266.4)",
+          "oklch(35% 0.015 266.4)",
+          "oklch(45% 0.015 266.4)",
+          "oklch(55% 0.015 266.4)",
+          "oklch(65% 0.015 266.4)",
+          "oklch(80% 0.015 266.4)",
+          "oklch(95% 0.015 266.4)"
+        ]
+      },
+      "midnight": {
+        "role": "neutral",
+        "displayName": "Midnight",
+        "canonical": "#070913",
+        "tonalRamp": [
+          "oklch(15% 0.022 273.5)",
+          "oklch(25% 0.022 273.5)",
+          "oklch(35% 0.022 273.5)",
+          "oklch(45% 0.022 273.5)",
+          "oklch(55% 0.022 273.5)",
+          "oklch(65% 0.022 273.5)",
+          "oklch(80% 0.022 273.5)",
+          "oklch(95% 0.022 273.5)"
+        ]
+      },
+      "navy": {
+        "role": "primary",
+        "displayName": "Gateway Navy",
+        "canonical": "#171653",
+        "tonalRamp": [
+          "oklch(15% 0.107 276.0)",
+          "oklch(25% 0.107 276.0)",
+          "oklch(35% 0.107 276.0)",
+          "oklch(45% 0.107 276.0)",
+          "oklch(55% 0.107 276.0)",
+          "oklch(65% 0.107 276.0)",
+          "oklch(80% 0.107 276.0)",
+          "oklch(95% 0.107 276.0)"
+        ]
+      },
+      "indigo": {
+        "role": "primary",
+        "displayName": "Ceremonial Indigo",
+        "canonical": "#29246f",
+        "tonalRamp": [
+          "oklch(15% 0.125 279.5)",
+          "oklch(25% 0.125 279.5)",
+          "oklch(35% 0.125 279.5)",
+          "oklch(45% 0.125 279.5)",
+          "oklch(55% 0.125 279.5)",
+          "oklch(65% 0.125 279.5)",
+          "oklch(80% 0.125 279.5)",
+          "oklch(95% 0.125 279.5)"
+        ]
+      },
+      "ivory": {
+        "role": "neutral",
+        "displayName": "Ivory Scene",
+        "canonical": "#f3f0e7",
+        "tonalRamp": [
+          "oklch(15% 0.012 91.5)",
+          "oklch(25% 0.012 91.5)",
+          "oklch(35% 0.012 91.5)",
+          "oklch(45% 0.012 91.5)",
+          "oklch(55% 0.012 91.5)",
+          "oklch(65% 0.012 91.5)",
+          "oklch(80% 0.012 91.5)",
+          "oklch(95% 0.012 91.5)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#fbfaf6",
+        "tonalRamp": [
+          "oklch(15% 0.005 95.1)",
+          "oklch(25% 0.005 95.1)",
+          "oklch(35% 0.005 95.1)",
+          "oklch(45% 0.005 95.1)",
+          "oklch(55% 0.005 95.1)",
+          "oklch(65% 0.005 95.1)",
+          "oklch(80% 0.005 95.1)",
+          "oklch(95% 0.005 95.1)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#15162a",
+        "tonalRamp": [
+          "oklch(15% 0.039 280.3)",
+          "oklch(25% 0.039 280.3)",
+          "oklch(35% 0.039 280.3)",
+          "oklch(45% 0.039 280.3)",
+          "oklch(55% 0.039 280.3)",
+          "oklch(65% 0.039 280.3)",
+          "oklch(80% 0.039 280.3)",
+          "oklch(95% 0.039 280.3)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Soft White",
+        "canonical": "#f8f8f5",
+        "tonalRamp": [
+          "oklch(15% 0.004 106.5)",
+          "oklch(25% 0.004 106.5)",
+          "oklch(35% 0.004 106.5)",
+          "oklch(45% 0.004 106.5)",
+          "oklch(55% 0.004 106.5)",
+          "oklch(65% 0.004 106.5)",
+          "oklch(80% 0.004 106.5)",
+          "oklch(95% 0.004 106.5)"
+        ]
+      },
+      "amber": {
+        "role": "secondary",
+        "displayName": "Witness Amber",
+        "canonical": "#e0a955",
+        "tonalRamp": [
+          "oklch(15% 0.120 75.8)",
+          "oklch(25% 0.120 75.8)",
+          "oklch(35% 0.120 75.8)",
+          "oklch(45% 0.120 75.8)",
+          "oklch(55% 0.120 75.8)",
+          "oklch(65% 0.120 75.8)",
+          "oklch(80% 0.120 75.8)",
+          "oklch(95% 0.120 75.8)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Utility",
+        "canonical": "#686779",
+        "tonalRamp": [
+          "oklch(15% 0.028 287.9)",
+          "oklch(25% 0.028 287.9)",
+          "oklch(35% 0.028 287.9)",
+          "oklch(45% 0.028 287.9)",
+          "oklch(55% 0.028 287.9)",
+          "oklch(65% 0.028 287.9)",
+          "oklch(80% 0.028 287.9)",
+          "oklch(95% 0.028 287.9)"
+        ]
+      },
+      "hero-foreground": {
+        "role": "neutral",
+        "displayName": "Hero Light",
+        "canonical": "#f4f2f7",
+        "tonalRamp": [
+          "oklch(15% 0.007 304.2)",
+          "oklch(25% 0.007 304.2)",
+          "oklch(35% 0.007 304.2)",
+          "oklch(45% 0.007 304.2)",
+          "oklch(55% 0.007 304.2)",
+          "oklch(65% 0.007 304.2)",
+          "oklch(80% 0.007 304.2)",
+          "oklch(95% 0.007 304.2)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Scene Display",
+        "purpose": "Manrope scene headings with compressed leading and assertive weight."
+      },
+      "editorial": {
+        "displayName": "Scripture Editorial",
+        "purpose": "Newsreader for Scripture, declarations, citations, and selected reflective phrases."
+      },
+      "title": {
+        "displayName": "Chapter Title",
+        "purpose": "Manrope titles inside photographic chapters and intermediate story beats."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Manrope explanatory prose and practical guidance."
+      },
+      "label": {
+        "displayName": "Utility Label",
+        "purpose": "Compact service metadata, actions, navigation, and citations."
+      },
+      "hero-display": {
+        "displayName": "Approved Hero Display",
+        "purpose": "Outfit display typography scoped only to the immutable opening hero."
+      }
+    },
+    "motion": [
+      {
+        "name": "ease-out-ui",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Default easing for action state changes and restrained image response."
+      },
+      {
+        "name": "ease-in-out-ui",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "purpose": "Focused scene or media transitions that need a deliberate handoff."
+      },
+      {
+        "name": "state-color",
+        "value": "160ms var(--ease-out-ui)",
+        "purpose": "Color, background, and border transitions on interactive controls."
+      },
+      {
+        "name": "press",
+        "value": "140ms var(--ease-out-ui)",
+        "purpose": "Compact active compression and hover lift on actions."
+      },
+      {
+        "name": "chapter-image",
+        "value": "900ms var(--ease-out-ui)",
+        "purpose": "Fine-pointer image scale response inside experience chapters."
+      },
+      {
+        "name": "scripture-reveal",
+        "value": "560ms var(--ease-out-ui)",
+        "purpose": "Short opacity and 16px vertical reveal when Scripture motion is enabled."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "hardening",
+        "value": "240px"
+      },
+      {
+        "name": "compact",
+        "value": "560px"
+      },
+      {
+        "name": "scene-stack",
+        "value": "900px"
+      },
+      {
+        "name": "desktop-navigation",
+        "value": "1180px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Hero Primary Action",
+      "kind": "button",
+      "refersTo": "hero-action-primary",
+      "description": "The opening hero’s filled action for the primary visit path.",
+      "html": "<a class=\"ds-hero-primary\" href=\"#visit\"><span>Plan Your Visit</span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>",
+      "css": ".ds-hero-primary { display: inline-flex; min-height: 2.75rem; align-items: center; justify-content: center; gap: 0.65rem; padding: 0.75rem 1rem; border: 1px solid var(--color-white, #f8f8f5); border-radius: 0; background: var(--color-white, #f8f8f5); color: var(--color-ink, #15162a); font-family: var(--font-sans, Manrope, sans-serif); font-size: 0.875rem; font-weight: 700; line-height: 1; text-decoration: none; transition: color 160ms var(--ease-out-ui, cubic-bezier(0.23, 1, 0.32, 1)), background-color 160ms var(--ease-out-ui, cubic-bezier(0.23, 1, 0.32, 1)), transform 140ms var(--ease-out-ui, cubic-bezier(0.23, 1, 0.32, 1)); } .ds-hero-primary svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: square; stroke-linejoin: miter; } .ds-hero-primary:hover { transform: translateY(-2px); } .ds-hero-primary:active { transform: scale(0.97); } .ds-hero-primary:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-hero-primary { transition-duration: 1ms; } .ds-hero-primary:hover, .ds-hero-primary:active { transform: none; } }"
+    },
+    {
+      "name": "Hero Secondary Action",
+      "kind": "button",
+      "refersTo": "hero-action-secondary",
+      "description": "The opening hero’s quieter discovery action.",
+      "html": "<a class=\"ds-hero-secondary\" href=\"#identity\"><span>Discover EDSA</span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 5v14M6 13l6 6 6-6\"/></svg></a>",
+      "css": ".ds-hero-secondary { display: inline-flex; min-height: 2.75rem; align-items: center; justify-content: center; gap: 0.65rem; padding: 0.75rem 1rem; border: 1px solid rgba(248, 248, 245, 0.48); border-radius: 0; background: rgba(7, 9, 19, 0.28); color: var(--color-white, #f8f8f5); font-family: var(--font-sans, Manrope, sans-serif); font-size: 0.875rem; font-weight: 700; line-height: 1; text-decoration: none; transition: background-color 160ms var(--ease-out-ui, cubic-bezier(0.23, 1, 0.32, 1)), border-color 160ms var(--ease-out-ui, cubic-bezier(0.23, 1, 0.32, 1)), transform 140ms var(--ease-out-ui, cubic-bezier(0.23, 1, 0.32, 1)); } .ds-hero-secondary svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 2; } .ds-hero-secondary:hover { border-color: var(--color-white, #f8f8f5); background: rgba(248, 248, 245, 0.1); } .ds-hero-secondary:active { transform: scale(0.97); } .ds-hero-secondary:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-hero-secondary { transition-duration: 1ms; } .ds-hero-secondary:active { transform: none; } }"
+    },
+    {
+      "name": "Site Navigation",
+      "kind": "nav",
+      "refersTo": "navigation-visit",
+      "description": "The fixed midnight header with a quiet link hierarchy and bordered Visit action.",
+      "html": "<header class=\"ds-site-nav\"><a class=\"ds-site-nav__wordmark\" href=\"#home\">EDSA</a><nav class=\"ds-site-nav__links\" aria-label=\"Primary navigation\"><a href=\"#identity\" aria-current=\"location\">About</a><a href=\"#experience\">Experience</a><a href=\"#the-word\">The Word</a><a class=\"ds-site-nav__visit\" href=\"#visit\">Visit</a></nav></header>",
+      "css": ".ds-site-nav { display: flex; width: 100%; height: 4.25rem; align-items: center; justify-content: space-between; padding: 0 1.25rem; background: rgba(7, 9, 19, 0.94); color: var(--color-white, #f8f8f5); font-family: var(--font-sans, Manrope, sans-serif); backdrop-filter: blur(18px); } .ds-site-nav__wordmark { color: inherit; font-size: 1.05rem; font-weight: 800; letter-spacing: -0.035em; text-decoration: none; } .ds-site-nav__links { display: flex; align-items: center; gap: 1.5rem; } .ds-site-nav__links a { position: relative; display: inline-flex; min-height: 2.75rem; align-items: center; color: rgba(248, 248, 245, 0.74); font-size: 0.8125rem; font-weight: 650; text-decoration: none; } .ds-site-nav__links a:hover { color: var(--color-white, #f8f8f5); } .ds-site-nav__links a[aria-current=\"location\"]::after { position: absolute; right: 0; bottom: 0.25rem; left: 0; height: 1px; background: currentColor; content: \"\"; } .ds-site-nav__links .ds-site-nav__visit { min-width: 5.75rem; justify-content: center; padding: 0 1.1rem; border: 1px solid rgba(248, 248, 245, 0.62); color: var(--color-white, #f8f8f5); } .ds-site-nav a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; } @media (max-width: 560px) { .ds-site-nav__links a:not(.ds-site-nav__visit) { display: none; } }"
+    },
+    {
+      "name": "Quick Access Rail",
+      "kind": "custom",
+      "refersTo": "quick-access",
+      "description": "The compact paper rail for service times, location, and directions.",
+      "html": "<section class=\"ds-quick-access\" aria-label=\"Service times and directions\"><div class=\"ds-quick-access__item\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M12 7v5l3 2\"/></svg><span><strong>Sunday</strong><time>8:00 PM</time></span></div><div class=\"ds-quick-access__item\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 8h14v11H5zM8 5v6M16 5v6\"/></svg><span><strong>Wednesday</strong><time>5:00 PM</time></span></div><div class=\"ds-quick-access__item\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21s6-5.5 6-11a6 6 0 1 0-12 0c0 5.5 6 11 6 11Z\"/><circle cx=\"12\" cy=\"10\" r=\"2\"/></svg><span><strong>Sapele</strong><span>Location</span></span></div><a class=\"ds-quick-access__directions\" href=\"#visit\"><span>Get Directions</span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a></section>",
+      "css": ".ds-quick-access { display: grid; width: 100%; min-height: 6.5rem; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--color-paper, #fbfaf6); color: var(--color-ink, #15162a); font-family: var(--font-sans, Manrope, sans-serif); } .ds-quick-access__item, .ds-quick-access__directions { position: relative; display: flex; min-width: 0; align-items: center; gap: 0.85rem; padding: 1.15rem 1.25rem; } .ds-quick-access__item::after { position: absolute; top: 1.5rem; right: 0; bottom: 1.5rem; width: 1px; background: rgba(21, 22, 42, 0.16); content: \"\"; } .ds-quick-access svg { width: 1.3rem; height: 1.3rem; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.8; } .ds-quick-access__item > span { display: grid; gap: 0.18rem; } .ds-quick-access strong, .ds-quick-access__directions { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; } .ds-quick-access time, .ds-quick-access__item span span { color: var(--color-muted, #686779); font-size: 0.9rem; font-weight: 550; } .ds-quick-access__directions { justify-content: space-between; color: var(--color-navy, #171653); text-decoration: none; } .ds-quick-access__directions:hover { background: rgba(23, 22, 83, 0.07); } .ds-quick-access__directions:active { transform: scale(0.97); } .ds-quick-access__directions:focus-visible { outline: 2px solid currentColor; outline-offset: -4px; } @media (max-width: 900px) { .ds-quick-access { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ds-quick-access__item, .ds-quick-access__directions { min-height: 5.6rem; } .ds-quick-access__item:nth-child(2)::after { display: none; } }"
+    },
+    {
+      "name": "Scripture Plaque",
+      "kind": "custom",
+      "refersTo": "scripture-plaque",
+      "description": "The navy editorial plaque used to place Scripture inside a pale photographic scene.",
+      "html": "<blockquote class=\"ds-scripture-plaque\"><p>He healeth the broken in heart, and bindeth up their wounds.</p><footer><cite>Psalm 147:3 · KJV</cite></footer></blockquote>",
+      "css": ".ds-scripture-plaque { max-width: 33rem; margin: 0; padding: 2.25rem 2.75rem; border-radius: 0; background: var(--color-navy, #171653); color: var(--color-white, #f8f8f5); } .ds-scripture-plaque p { margin: 0; font-family: var(--font-editorial, Newsreader, serif); font-size: clamp(1.65rem, 2.6vw, 2.8rem); font-weight: 430; line-height: 1.16; letter-spacing: -0.026em; } .ds-scripture-plaque footer { margin-top: 1rem; } .ds-scripture-plaque cite { color: rgba(248, 248, 245, 0.8); font-family: var(--font-sans, Manrope, sans-serif); font-size: 0.72rem; font-style: normal; font-weight: 750; letter-spacing: 0.075em; text-transform: uppercase; } @media (max-width: 900px) { .ds-scripture-plaque { padding: 1.75rem 1.25rem 2rem; } .ds-scripture-plaque p { font-size: clamp(1.55rem, 6.8vw, 2.2rem); } }"
+    },
+    {
+      "name": "Dark Scene Button",
+      "kind": "button",
+      "refersTo": "scene-button-dark",
+      "description": "The filled practical action used on pale visit surfaces.",
+      "html": "<a class=\"ds-scene-dark\" href=\"#directions\"><span>Get Directions</span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>",
+      "css": ".ds-scene-dark { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; gap: 0.65rem; padding: 0.9rem 1.15rem; border: 0; border-radius: 0; background: var(--color-navy, #171653); color: var(--color-white, #f8f8f5); font-family: var(--font-sans, Manrope, sans-serif); font-size: 0.875rem; font-weight: 700; line-height: 1; text-decoration: none; transition: transform 140ms var(--ease-out-ui, cubic-bezier(0.23, 1, 0.32, 1)); } .ds-scene-dark svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 2; } .ds-scene-dark:hover { transform: translateY(-2px); } .ds-scene-dark:active { transform: scale(0.97); } .ds-scene-dark:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-scene-dark { transition-duration: 1ms; } .ds-scene-dark:hover, .ds-scene-dark:active { transform: none; } }"
+    },
+    {
+      "name": "Light Scene Button",
+      "kind": "button",
+      "refersTo": "scene-button-light",
+      "description": "The filled light action used over the final midnight photographic invitation.",
+      "html": "<a class=\"ds-scene-light\" href=\"#visit\"><span>Plan Your Visit</span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 5v14M6 13l6 6 6-6\"/></svg></a>",
+      "css": ".ds-scene-light { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; gap: 0.65rem; padding: 0.9rem 1.15rem; border: 0; border-radius: 0; background: var(--color-white, #f8f8f5); color: var(--color-ink, #15162a); font-family: var(--font-sans, Manrope, sans-serif); font-size: 0.875rem; font-weight: 700; line-height: 1; text-decoration: none; transition: transform 140ms var(--ease-out-ui, cubic-bezier(0.23, 1, 0.32, 1)); } .ds-scene-light svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 2; } .ds-scene-light:hover { transform: translateY(-2px); } .ds-scene-light:active { transform: scale(0.97); } .ds-scene-light:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-scene-light { transition-duration: 1ms; } .ds-scene-light:hover, .ds-scene-light:active { transform: none; } }"
+    },
+    {
+      "name": "Social Action",
+      "kind": "button",
+      "refersTo": "social-action",
+      "description": "A bordered secondary action for confirmed social channels on pale scenes.",
+      "html": "<a class=\"ds-social-action\" href=\"#instagram\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"4\"/><circle cx=\"12\" cy=\"12\" r=\"3.5\"/><circle cx=\"17\" cy=\"7\" r=\"1\"/></svg><span>Instagram</span></a>",
+      "css": ".ds-social-action { display: inline-flex; min-width: 7.75rem; min-height: 3rem; align-items: center; justify-content: center; gap: 0.65rem; padding: 0.75rem 1rem; border: 1px solid rgba(21, 22, 42, 0.2); border-radius: 0; background: transparent; color: var(--color-navy, #171653); font-family: var(--font-sans, Manrope, sans-serif); font-size: 0.875rem; font-weight: 700; line-height: 1; text-decoration: none; transition: background-color 160ms var(--ease-out-ui, cubic-bezier(0.23, 1, 0.32, 1)), transform 140ms var(--ease-out-ui, cubic-bezier(0.23, 1, 0.32, 1)); } .ds-social-action svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 1.7; } .ds-social-action:hover { background: rgba(23, 22, 83, 0.07); } .ds-social-action:active { transform: scale(0.97); } .ds-social-action:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-social-action { transition-duration: 1ms; } .ds-social-action:active { transform: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Editorial Sanctuary",
+    "overview": "The Editorial Sanctuary combines the gravity of a midnight worship space with the clarity of a premium editorial publication. Distinct scenes shift between navy-black atmosphere, ivory and paper utility, amber warmth, and vivid human photography, so the experience feels cinematic without obscuring service information or the next action.\n\nThe system is premium through restraint: flat tonal layers, near-square compositions, disciplined type, compact controls, and carefully placed Scripture. Manrope carries navigation, display, body, and utility work; Newsreader introduces a spiritual editorial cadence; Outfit belongs only to the approved opening hero. Real EDSA people and places provide emotion and proof rather than generic church imagery.\n\nMotion creates continuity, never meaning. The opening sequence may be immersive and the preaching stage may use restrained depth on capable desktop devices, while every other state remains complete, legible, and composed without animation.",
+    "keyCharacteristics": [
+      "Distinct editorial scenes joined by a controlled midnight, navy, paper, ivory, and amber palette.",
+      "Real human photography in squared or near-square crops, with scrims used only for legibility.",
+      "Dense display typography balanced by compact, practical action hierarchy.",
+      "Flat tonal layering and deliberate overlap instead of decorative shadow stacks.",
+      "Restrained, interruptible motion with static mobile, coarse-pointer, and reduced-motion compositions."
+    ],
+    "rules": [
+      {
+        "name": "The Scene Contrast Rule",
+        "body": "Adjacent scenes must change tone, composition, or photographic density clearly enough to feel intentional while remaining part of the same navy-led world.",
+        "section": "colors"
+      },
+      {
+        "name": "The Amber Restraint Rule",
+        "body": "Amber is a moment of warmth or witness, not the default button, body-text, or navigation color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three-Voice Rule",
+        "body": "Manrope owns the interface and post-hero hierarchy, Newsreader is reserved for Scripture and selected editorial phrases, and Outfit appears only inside the approved hero.",
+        "section": "typography"
+      },
+      {
+        "name": "The Editorial Phrase Rule",
+        "body": "Newsreader should punctuate a Manrope-led composition; it must not become the default body or navigation face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-by-Default Rule",
+        "body": "Surfaces rest on one plane; use tonal contrast, overlap, or a one-pixel divider before reaching for a shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square Form Rule",
+        "body": "Do not introduce rounded cards, pills, or capsule actions into this system; hierarchy comes from proportion, contrast, and placement.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Compact Action Rule",
+        "body": "One filled action leads; secondary actions remain outlined or text-led and must not compete with it in weight.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "**Do** build pages as a sequence of visibly distinct scenes held together by the same type roles and navy-led palette.",
+      "**Do** use real EDSA people, worship, teaching, children, and place photography in intentional square or near-square crops.",
+      "**Do** keep one filled action visually primary and make service information immediately scannable.",
+      "**Do** preserve complete static compositions for mobile, coarse pointers, loading failure, and reduced motion.",
+      "**Do** use Manrope for practical clarity and reserve Newsreader for Scripture or a selected editorial phrase."
+    ],
+    "donts": [
+      "**Don't** introduce rounded cards, pill buttons, soft dashboard panels, or decorative shadow stacks.",
+      "**Don't** let Outfit escape the approved hero or let Newsreader become the default interface face.",
+      "**Don't** reuse a photograph within the same narrative surface or substitute generic stock-spiritual imagery for real human evidence.",
+      "**Don't** make meaning, service information, or an action depend on animation, hover, or pointer depth.",
+      "**Don't** flood the interface with amber; its rarity gives it warmth and authority."
+    ]
+  }
+}

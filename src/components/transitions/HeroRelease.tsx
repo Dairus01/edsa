@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-import { homepage } from "@/content/homepage";
+import { homepageImages } from "@/content/imageUsage";
 
 export function HeroRelease() {
-  const { image } = homepage.whoWeAre;
+  const image = homepageImages.heroRelease;
 
   return (
     <div

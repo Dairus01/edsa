@@ -1,69 +1,55 @@
+import { ArrowDown, ArrowUpRight } from "@phosphor-icons/react/ssr";
 import Image from "next/image";
 
 import { ScriptureMoment } from "@/components/content/ScriptureMoment";
 import { ExternalLink } from "@/components/ui/ExternalLink";
-import { church } from "@/content/church";
 import { homepage } from "@/content/homepage";
+import { homepageImages } from "@/content/imageUsage";
+import { primaryLocation } from "@/content/locations";
 import { scripture } from "@/content/scripture";
 
 export function FinalInvitation() {
-  const content = homepage.finalInvitation;
+  const content = homepage.invitation;
+  const image = homepageImages.invitation;
 
   return (
     <section
       id="invitation"
-      className="final-invitation"
-      data-phase2-section="final-invitation"
+      className="invitation-scene"
+      data-homepage-section="invitation"
     >
-      <div className="final-invitation__image">
-        <Image
-          src={content.image.src}
-          alt={content.image.alt}
-          fill
-          sizes="(max-width: 900px) 100vw, 58vw"
-          loading="lazy"
-          decoding="async"
-          style={{ objectPosition: content.image.position }}
-        />
-        <div className="final-invitation__image-shade" aria-hidden="true" />
-      </div>
+      <Image
+        src={image.src}
+        alt={image.alt}
+        fill
+        sizes="100vw"
+        loading="lazy"
+        style={{ objectPosition: image.position }}
+      />
+      <div className="invitation-scene__scrim" aria-hidden="true" />
 
-      <div className="final-invitation__copy">
+      <div className="invitation-scene__inner">
         <h2 tabIndex={-1}>{content.heading}</h2>
-        <div className="final-invitation__body">
+        <div className="invitation-scene__body">
           {content.paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-
         <ScriptureMoment
           entry={scripture.invitation}
-          className="final-invitation__scripture"
+          className="invitation-scene__scripture"
         />
-
-        <div className="final-invitation__welcome">
-          <p>{content.finalStatement}</p>
-          <p>
-            {church.sloganLines.map((line) => (
-              <span key={line}>
-                {line}
-              </span>
-            ))}
-          </p>
-        </div>
-
-        <div className="final-invitation__actions">
+        <div className="invitation-scene__actions">
+          <a className="scene-button scene-button--light" href="#visit">
+            <span>Plan Your Visit</span>
+            <ArrowDown aria-hidden="true" weight="bold" />
+          </a>
           <ExternalLink
-            className="action-link action-link--primary"
-            href={church.links.maps}
+            className="scene-text-link"
+            href={primaryLocation.mapsUrl}
           >
-            {content.directionsLabel}
-          </ExternalLink>
-          <ExternalLink
-            className="action-link action-link--secondary"
-            href={church.links.instagram}
-          >
-            {content.instagramLabel}
+            <span>Get Directions</span>
+            <ArrowUpRight aria-hidden="true" weight="bold" />
           </ExternalLink>
         </div>
       </div>
