@@ -15,15 +15,15 @@ function trackErrors(page: Page) {
   return errors;
 }
 
-test("production smoke has versioned frames, a dark final welcome, and clean static fallback", async ({
+test("production hero uses versioned video, a dark final welcome, and a clean static fallback", async ({
   page,
 }) => {
   const errors = trackErrors(page);
-  const frameRequests: string[] = [];
+  const mediaRequests: string[] = [];
 
   page.on("request", (request) => {
-    if (request.url().includes("/sequences/hero/")) {
-      frameRequests.push(request.url());
+    if (request.url().includes("/videos/hero/")) {
+      mediaRequests.push(request.url());
     }
   });
 
@@ -31,15 +31,16 @@ test("production smoke has versioned frames, a dark final welcome, and clean sta
   const hero = page.locator(".hero-sequence");
 
   await expect(hero).toHaveAttribute("aria-busy", "false");
-  await expect(hero).toHaveAttribute("data-canvas-ready", "true");
-  await expect
-    .poll(() => frameRequests.length)
-    .toBeGreaterThan(0);
+  await expect(hero).toHaveAttribute("data-media-ready", "true");
+  await expect.poll(() => mediaRequests.length).toBeGreaterThan(0);
   expect(
-    frameRequests.every((request) =>
-      request.includes("v=2026-07-30-hero-1"),
+    mediaRequests.every((request) =>
+      request.includes("v=2026-08-01-hero-video-1"),
     ),
   ).toBe(true);
+  await expect(
+    page.getByText("Loading the opening frame", { exact: true }),
+  ).toHaveCount(0);
 
   await page.screenshot({
     path: "test-results/hero-production-desktop.png",
@@ -73,6 +74,7 @@ test("production smoke has versioned frames, a dark final welcome, and clean sta
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 568, height: 320 });
   await expect(hero).toHaveAttribute("data-static-layout", "true");
+  await expect(page.locator(".hero-sequence__video")).toHaveCount(0);
   await expect(
     page.getByText("Continue to discover who we are."),
   ).toBeAttached();

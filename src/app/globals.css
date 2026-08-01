@@ -115,6 +115,7 @@ canvas {
 }
 
 .hero-sequence__poster,
+.hero-sequence__video,
 .hero-sequence__canvas {
   position: absolute;
   z-index: 0;
@@ -138,7 +139,13 @@ canvas {
   opacity: 0;
 }
 
-.hero-sequence__canvas[data-has-drawn="true"] {
+.hero-sequence__video {
+  z-index: 1;
+  opacity: 0;
+}
+
+.hero-sequence__canvas[data-has-drawn="true"],
+.hero-sequence__video[data-ready="true"] {
   opacity: 1;
 }
 
@@ -688,6 +695,7 @@ canvas {
   }
 
   .hero-sequence__poster,
+  .hero-sequence__video,
   .hero-sequence__canvas {
     transition: none;
   }

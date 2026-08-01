@@ -45,6 +45,7 @@ interface HeroBrandTransition {
 export interface HeroSequenceSource {
   key: HeroSequenceKey;
   path: string;
+  videoPath: string;
   filenamePattern: string;
   extension: string;
   version: string;
@@ -75,9 +76,9 @@ interface HeroConfig {
   officialLogoPath: string;
 }
 
-// Increment this value whenever either checked-in frame sequence changes.
-// It is appended to every frame URL so deployments cannot reuse stale frames.
-export const heroSequenceVersion = "2026-07-30-hero-1";
+// Increment this value whenever a checked-in hero media asset changes.
+// It is appended to media URLs so deployments cannot reuse stale files.
+export const heroSequenceVersion = "2026-08-01-hero-video-1";
 
 export const desktopHeroBeats = [
   {
@@ -199,6 +200,7 @@ export const heroConfig: HeroConfig = {
   desktop: {
     key: "desktop",
     path: "/sequences/hero/desktop/",
+    videoPath: "/videos/hero/desktop.mp4",
     filenamePattern: "frame-{frame}",
     extension: "webp",
     version: heroSequenceVersion,
@@ -225,6 +227,7 @@ export const heroConfig: HeroConfig = {
   mobile: {
     key: "mobile",
     path: "/sequences/hero/mobile/",
+    videoPath: "/videos/hero/mobile.mp4",
     filenamePattern: "frame-{frame}",
     extension: "webp",
     version: heroSequenceVersion,
