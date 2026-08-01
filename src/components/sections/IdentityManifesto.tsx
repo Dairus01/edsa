@@ -15,6 +15,7 @@ export function IdentityManifesto() {
       id="identity"
       className="identity-manifesto"
       data-homepage-section="identity"
+      data-scroll-section
     >
       <div className="identity-manifesto__inner">
         <div className="identity-manifesto__image">
@@ -22,28 +23,32 @@ export function IdentityManifesto() {
             src={image.src}
             alt={image.alt}
             fill
-            sizes="(max-width: 760px) 100vw, 54vw"
+            sizes="(max-width: 1100px) 100vw, (max-width: 1440px) 54vw, 48rem"
             loading="lazy"
             style={{ objectPosition: image.position }}
           />
         </div>
 
-        <div className="identity-manifesto__copy">
-          <h2 id="identity-heading" tabIndex={-1}>
-            <span>Restored people.</span>
-            <span className="editorial-line">Growing faith.</span>
-            <span>Lives shaped by the Word.</span>
-          </h2>
-          <div className="identity-manifesto__body">
-            {content.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-          <p className="identity-manifesto__location">
-            Currently gathering in {primaryLocation.name},{" "}
-            {primaryLocation.address.state}.
-          </p>
+        <h2
+          id="identity-heading"
+          className="identity-manifesto__headline"
+          tabIndex={-1}
+        >
+          <span>Restored people.</span>
+          <span className="editorial-line">Growing faith.</span>
+          <span>Lives shaped by the Word.</span>
+        </h2>
+
+        <div className="identity-manifesto__body">
+          {content.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
         </div>
+
+        <p className="identity-manifesto__location">
+          Currently gathering in {primaryLocation.name},{" "}
+          {primaryLocation.address.state}.
+        </p>
 
         <ScriptureMoment
           entry={scripture.restoration}

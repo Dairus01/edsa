@@ -10,7 +10,6 @@ const renderedScripture = [
   scripture.restoration,
   scripture.word,
   scripture.generations,
-  scripture.invitation,
 ];
 
 async function waitForHero(page: Page) {

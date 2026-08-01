@@ -145,17 +145,17 @@ test("location data drives Visit, service times, directions, and social icons", 
   await expect(facebook).toHaveAttribute("target", "_blank");
 });
 
-test("exactly four homepage Scripture moments render", async ({ page }) => {
+test("the three approved homepage Scripture moments render", async ({ page }) => {
   await page.goto("/");
   await waitForHero(page);
 
   const moments = page.locator("blockquote.scripture-moment");
 
-  await expect(moments).toHaveCount(4);
+  await expect(moments).toHaveCount(3);
   await expect(page.getByText("Psalm 147:3", { exact: false })).toBeAttached();
   await expect(page.getByText("2 Timothy 3:16", { exact: false })).toBeAttached();
   await expect(page.getByText("Psalm 145:4", { exact: false })).toBeAttached();
-  await expect(page.getByText("Matthew 11:28", { exact: false })).toBeAttached();
+  await expect(page.getByText("Matthew 11:28", { exact: false })).toHaveCount(0);
   await expect(page.getByText("Psalm 133:1", { exact: false })).toHaveCount(0);
   await expect(page.getByText("Acts 2:42", { exact: false })).toHaveCount(0);
 });

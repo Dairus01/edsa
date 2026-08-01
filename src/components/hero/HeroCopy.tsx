@@ -3,6 +3,7 @@
 import { ArrowDown, ArrowUpRight } from "@phosphor-icons/react";
 import {
   forwardRef,
+  memo,
   useImperativeHandle,
   useRef,
 } from "react";
@@ -90,7 +91,7 @@ const heroCopy: Record<
   },
 };
 
-export const HeroCopy = forwardRef<HeroCopyHandle, HeroCopyProps>(
+const HeroCopyComponent = forwardRef<HeroCopyHandle, HeroCopyProps>(
   function HeroCopy(
     {
       beats,
@@ -183,7 +184,10 @@ export const HeroCopy = forwardRef<HeroCopyHandle, HeroCopyProps>(
               data-position-desktop={beat.position.desktop}
               data-position-mobile={beat.position.mobile}
               style={{
-                opacity: getHeroBeatOpacity(beat, 0),
+                opacity:
+                  beat.id === "identity"
+                    ? 1
+                    : getHeroBeatOpacity(beat, 0),
               }}
             >
               {copy.content}
@@ -194,6 +198,10 @@ export const HeroCopy = forwardRef<HeroCopyHandle, HeroCopyProps>(
     );
   },
 );
+
+HeroCopyComponent.displayName = "HeroCopy";
+
+export const HeroCopy = memo(HeroCopyComponent);
 
 function HeroActions() {
   return (

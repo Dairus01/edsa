@@ -17,6 +17,7 @@ export function EDSAExperience() {
       id="experience"
       className="edsa-experience"
       data-homepage-section="experience"
+      data-scroll-section
     >
       <div className="edsa-experience__intro">
         <h2 tabIndex={-1}>{content.heading}</h2>
@@ -36,7 +37,7 @@ export function EDSAExperience() {
                 src={image.src}
                 alt={image.alt}
                 fill
-                sizes="(max-width: 760px) 100vw, 40vw"
+                sizes="(max-width: 900px) calc(100vw - 2.5rem), (max-width: 1440px) 34vw, 30rem"
                 loading="lazy"
                 style={{ objectPosition: image.position }}
               />

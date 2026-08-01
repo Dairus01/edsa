@@ -18,6 +18,7 @@ export function TheWord() {
       id="the-word"
       className="word-scene"
       data-homepage-section="the-word"
+      data-scroll-section
     >
       <div className="word-scene__header">
         <h2 tabIndex={-1}>{content.heading}</h2>

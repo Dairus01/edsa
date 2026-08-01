@@ -24,6 +24,7 @@ export function VisitEDSA() {
       className="visit-scene"
       data-homepage-section="visit"
       data-location-count={locations.length}
+      data-scroll-section
     >
       <div className="visit-scene__inner">
         <div className="visit-scene__heading">
@@ -42,7 +43,7 @@ export function VisitEDSA() {
             src={image.src}
             alt={image.alt}
             fill
-            sizes="(max-width: 760px) 100vw, 38vw"
+            sizes="(max-width: 900px) 100vw, (max-width: 1440px) 38vw, 34rem"
             loading="lazy"
             style={{ objectPosition: image.position }}
           />

@@ -365,24 +365,32 @@ export function HeroSequence() {
       data-sequence-source={sourceKey}
       data-static-layout={staticLayout}
       data-target-frame={initialFrame}
+      data-scroll-section
     >
       <div className="hero-sequence__viewport">
         {!staticLayout ? (
           <>
-            <img
-              className="hero-sequence__poster"
-              src={posterSource}
-              width={source.sourceWidth}
-              height={source.sourceHeight}
-              alt=""
-              aria-hidden="true"
-              decoding="async"
-              fetchPriority="high"
-              data-visible={!canvasHasDrawn}
-              onError={() => {
-                setPosterErrorEngineKey(sequence.engineKey);
-              }}
-            />
+            <picture>
+              <source
+                media="(max-width: 900px)"
+                srcSet={`/sequences/hero/mobile-poster.webp?v=${heroConfig.mobile.version}`}
+              />
+              <img
+                className="hero-sequence__poster"
+                src={posterSource}
+                width={source.sourceWidth}
+                height={source.sourceHeight}
+                alt=""
+                aria-hidden="true"
+                decoding="async"
+                fetchPriority="high"
+                data-mobile-poster="/sequences/hero/mobile-poster.webp"
+                data-visible={!canvasHasDrawn}
+                onError={() => {
+                  setPosterErrorEngineKey(sequence.engineKey);
+                }}
+              />
+            </picture>
 
             <SequenceCanvas
               key={sequence.engineKey}

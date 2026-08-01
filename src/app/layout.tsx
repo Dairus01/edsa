@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Newsreader, Outfit } from "next/font/google";
 
+import { EzraLauncher } from "@/components/ezra/EzraLauncher";
 import { church } from "@/content/church";
 
 import "./globals.css";
@@ -20,6 +21,8 @@ const manrope = Manrope({
 const newsreader = Newsreader({
   subsets: ["latin"],
   display: "swap",
+  style: ["normal", "italic"],
+  preload: false,
   variable: "--font-newsreader",
 });
 
@@ -50,6 +53,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <EzraLauncher />
       </body>
     </html>
   );

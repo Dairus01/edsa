@@ -4,6 +4,8 @@ node_modules/
 # Next.js
 .next/
 out/
+.vercel/
+.netlify/
 
 # environment variables
 .env
@@ -28,6 +30,7 @@ coverage/
 playwright-report/
 test-results/
 .artifacts/
+dogfood-output/
 
 # TypeScript
 *.tsbuildinfo
@@ -35,6 +38,7 @@ test-results/
 # temporary files
 *.tmp
 *.temp
+.cache/
 
 # source media retained locally after frame extraction
 public/videos/source/

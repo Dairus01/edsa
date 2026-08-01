@@ -15,6 +15,7 @@ export function EveryGeneration() {
       id="generations"
       className="generation-scene"
       data-homepage-section="generations"
+      data-scroll-section
     >
       <div className="generation-scene__inner">
         <div className="generation-scene__primary">
@@ -22,7 +23,7 @@ export function EveryGeneration() {
             src={primary.src}
             alt={primary.alt}
             fill
-            sizes="(max-width: 760px) 100vw, 48vw"
+            sizes="(max-width: 900px) calc(100vw - 1.25rem), (max-width: 1440px) 48vw, 43rem"
             loading="lazy"
             style={{ objectPosition: primary.position }}
           />
@@ -41,7 +42,7 @@ export function EveryGeneration() {
             src={secondary.src}
             alt={secondary.alt}
             fill
-            sizes="(max-width: 760px) 100vw, 28vw"
+            sizes="(max-width: 900px) 70vw, (max-width: 1440px) 24vw, 22rem"
             loading="lazy"
             style={{ objectPosition: secondary.position }}
           />

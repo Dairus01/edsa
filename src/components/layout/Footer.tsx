@@ -29,7 +29,10 @@ export function Footer() {
           <MapPin aria-hidden="true" weight="regular" />
           <p>
             <strong>{primaryLocation.name} Location</strong>
-            <span>{primaryLocation.address.line1}</span>
+            <span>
+              {primaryLocation.address.line1},{" "}
+              {primaryLocation.address.city}
+            </span>
           </p>
         </div>
 

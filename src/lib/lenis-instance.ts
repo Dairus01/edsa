@@ -7,7 +7,8 @@ export function setLenisInstance(instance: Lenis | null) {
 
   if (
     instance &&
-    document.body.classList.contains("navigation-menu-open")
+    (document.body.classList.contains("navigation-menu-open") ||
+      document.body.classList.contains("ezra-chat-open"))
   ) {
     instance.stop();
   }

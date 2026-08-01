@@ -10,6 +10,7 @@ const webServerCommand =
 
 export default defineConfig({
   testDir: "./tests",
+  tsconfig: "./tsconfig.playwright.json",
   timeout: 45_000,
   expect: {
     timeout: 10_000,
@@ -28,5 +29,11 @@ export default defineConfig({
     url: baseURL,
     reuseExistingServer: true,
     timeout: 120_000,
+    env: {
+      ...process.env,
+      EDSA_CHAT_ENABLED: "true",
+      GEMINI_API_KEY: "",
+      GEMINI_MODEL: "gemma-4-31b-it",
+    },
   },
 });

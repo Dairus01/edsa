@@ -17,18 +17,21 @@ interface NavigateOptions {
   immediate?: boolean;
 }
 
-function getSafeGap() {
-  return Math.min(24, Math.max(12, window.innerWidth * 0.015));
-}
-
 function getDestination(
   target: HTMLElement,
   navigation: HTMLElement | null,
 ) {
   const targetTop = target.getBoundingClientRect().top + window.scrollY;
   const navHeight = navigation?.getBoundingClientRect().height ?? 0;
+  const computedScrollMargin = Number.parseFloat(
+    window.getComputedStyle(target).scrollMarginTop,
+  );
+  const reservedOffset =
+    Number.isFinite(computedScrollMargin) && computedScrollMargin > 0
+      ? computedScrollMargin
+      : navHeight + 16;
 
-  return Math.max(0, targetTop - navHeight - getSafeGap());
+  return Math.max(0, targetTop - reservedOffset);
 }
 
 function focusDestinationHeading(target: HTMLElement) {

@@ -17,6 +17,7 @@ export function FinalInvitation() {
       id="invitation"
       className="invitation-scene"
       data-homepage-section="invitation"
+      data-scroll-section
     >
       <Image
         src={image.src}

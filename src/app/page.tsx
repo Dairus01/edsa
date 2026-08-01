@@ -3,8 +3,8 @@ import { Footer } from "@/components/layout/Footer";
 import { SiteNavigation } from "@/components/layout/SiteNavigation";
 import { EDSAExperience } from "@/components/sections/EDSAExperience";
 import { EveryGeneration } from "@/components/sections/EveryGeneration";
-import { FinalInvitation } from "@/components/sections/FinalInvitation";
 import { IdentityManifesto } from "@/components/sections/IdentityManifesto";
+import { MeetEzra } from "@/components/sections/MeetEzra";
 import { QuickAccessRail } from "@/components/sections/QuickAccessRail";
 import { TheWord } from "@/components/sections/TheWord";
 import { VisitEDSA } from "@/components/sections/VisitEDSA";
@@ -55,9 +55,9 @@ export default function Home() {
         <IdentityManifesto />
         <EDSAExperience />
         <TheWord />
+        <MeetEzra />
         <EveryGeneration />
         <VisitEDSA />
-        <FinalInvitation />
       </main>
       <Footer />
     </>

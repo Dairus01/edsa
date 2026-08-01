@@ -34,8 +34,7 @@ test("capture post-hero visual review set", async ({ browser, page }) => {
     ["05-word", "#the-word"],
     ["06-generations", "#generations"],
     ["07-visit", "#visit"],
-    ["08-invitation", "#invitation"],
-    ["09-footer", "#footer"],
+    ["08-footer", "#footer"],
   ] as const) {
     await positionSection(page, selector);
     await page.screenshot({ path: output(name) });

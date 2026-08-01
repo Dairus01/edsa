@@ -18,5 +18,4 @@ export type NavigationSectionId = (typeof navigationItems)[number]["id"];
 export const hashTargetIds = [
   "home",
   ...navigationItems.map((item) => item.id),
-  "invitation",
 ] as const;

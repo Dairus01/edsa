@@ -65,9 +65,9 @@ test("new homepage scenes render in the required order", async ({ page }) => {
     "identity",
     "experience",
     "the-word",
+    "ezra",
     "generations",
     "visit",
-    "invitation",
     "footer",
   ]);
   await expect(page.locator("h1")).toHaveCount(1);
